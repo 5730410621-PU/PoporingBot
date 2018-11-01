@@ -134,17 +134,21 @@
 
     function uploadImage($arrayHeader,$richMenuId){
         $strUrl = "https://api.line.me/v2/bot/richmenu/$richMenuId/content";
-        $data = array('file' => '@/appinline_design.jpg');
+        $im = '@/appinline_design.jpg';
+        $ch = "curl -v -X POST ".$strUrl.$arrayHeader[0].$arrayHeader[1]."-T ".$im;
+        /*
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_UPLOAD, TRUE);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $result = curl_exec($ch);
-        curl_close ($ch);
+        */
+        $result = exec($ch);
+        //curl_close ($ch);
         return $result;
     }
 
