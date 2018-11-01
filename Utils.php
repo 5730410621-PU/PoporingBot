@@ -75,9 +75,11 @@
                         "width" => 833,
                         "height" => 843
                     ],
-                    "action" => [
-                        "type" => "message",
-                        "text" => "Report"
+                    "action" => [    
+                        "type" => "postback",
+                        "label" => "Report",
+                        "data" => "action=Report",
+                        "text" => "Thank you for report please send me what you want: \n1. Text form\n2. Image\n3. Video\nWhen you finish please end with text #confirm ."
                     ]
                   ]
             ]
@@ -128,6 +130,22 @@
         return $result;
         //return json_decode($result,true)['richMenuId'];
         
+    }
+
+    function setRichMenu($arrayHeader,$richMenuId){
+        $strUrl = "https://api.line.me/v2/bot/richmenu/$richMenuId/content";
+        $data = array('name' => 'richMenuImage', 'file' => '/appinline_design.jpeg');
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,$strUrl);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result = curl_exec($ch);
+        curl_close ($ch);
+        return $result;
     }
 
     function setRichMenu($arrayHeader,$richMenuId){

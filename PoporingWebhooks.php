@@ -9,11 +9,16 @@ $content = file_get_contents('php://input');
 $arrayJson = json_decode($content, true);
 
 $jsonHeader = "Content-Type: application/json";
+$imageHeader = "Content-Type: image/jpeg";
 $accessHeader = "Authorization: Bearer {$accessToken}";
 
 $arrayHeader = array();
 $arrayHeader[] = $jsonHeader;
 $arrayHeader[] = $accessHeader;
+
+$imageArrayHeader = array();
+$imageArrayHeader[] = $imageHeader;
+$imageArrayHeader[] = $accessHeader;
 
 $message = $arrayJson['events'][0]['message']['text'];
 $type = $arrayJson['events'][0]['type'];
@@ -30,7 +35,7 @@ $richMenu = newRichMenu();
 if($message == "reply"){
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = "User Id:".$id;
+	$arrayPostData['messages'][0]['text'] = "This Bot can reply";
 	replyMsg($arrayHeader,$arrayPostData);
 }
 
@@ -67,13 +72,36 @@ else if($message == "createRichMenu"){
 	}
 }
 
+//////////////// Upload Rich Menu Image ///////////////////
+
+else if($message == "uploadImage"){
+	
+	$richId = getRichMenu($arrayHeader);
+	$uploaded = uploadImage($imageArrayHeader,$richId);
+
+	if($uploaded != null){
+		$arrayPostData['replyToken'] = $replyToken;
+		$arrayPostData['messages'][0]['type'] = "text";
+		$arrayPostData['messages'][0]['text'] = "Success!! Upload complete.";
+		ReplyMsg($arrayHeader,$arrayPostData);
+	} 
+	else{
+		$arrayPostData['replyToken'] = $replyToken;
+		$arrayPostData['messages'][0]['type'] = "text";
+		$arrayPostData['messages'][0]['text'] = "Fail to upload";
+		ReplyMsg($arrayHeader,$arrayPostData);
+	}
+}
+
+
 
 /////////////////////Set Rich Menu /////////////////////////////
 
-if($message == "setMenu"){
+else if($message == "setRichMenu"){
 
 	$richMenuId = getRichMenu($arrayHeader);
 	$setRichMenu = setRichMenu($arrayHeader,$richMenuId);
+	
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
 	$arrayPostData['messages'][0]['text'] = "Set Complete ::".$setRichMenu;
