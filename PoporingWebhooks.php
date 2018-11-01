@@ -68,7 +68,7 @@ else if($message == "createRichMenu"){
 }
 
 //////////////// Upload Rich Menu Image ///////////////////
-/*
+
 else if($message == "uploadImage"){
 	
 	$richId = getRichMenu($arrayHeader);
@@ -88,7 +88,7 @@ else if($message == "uploadImage"){
 	}
 }
 
-*/
+
 
 /////////////////////Set Rich Menu /////////////////////////////
 

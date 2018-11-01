@@ -132,7 +132,7 @@
         
     }
 
-    function setRichMenu($arrayHeader,$richMenuId){
+    function uploadImage($arrayHeader,$richMenuId){
         $strUrl = "https://api.line.me/v2/bot/richmenu/$richMenuId/content";
         $data = array('name' => 'richMenuImage', 'file' => '/appinline_design.jpeg');
         $ch = curl_init();
