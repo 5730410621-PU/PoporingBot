@@ -1,9 +1,7 @@
 <?php
-namespace Poporing;
 
-class Utils {
 
-    public function newRichMenu(){
+    function newRichMenu(){
         $richMenu = [
             'size' => [ 'width' => 2500,'height' => 1686 ],
             "selected" => false,
@@ -164,4 +162,3 @@ class Utils {
         curl_close ($ch);
         
     }
-}

@@ -1,6 +1,6 @@
 <?php 
 
-use Poporing\Utils;
+include 'Utils.php';
 
 
 $accessToken = 'o7QzwyoiRRAbnd0Ylquyd9BgFSP88lcRdo3Oy9HBBEP1Wq2C5oTKiiLC8LkCo2wNVYSLUvqxsmuY5RBVn3xjyFxm913dEQW6xPI1j6lvABZiV21xlLx8ifPyMrma2VJYu37dzVa/Xyp5oIysTAJ6wwdB04t89/1O/w1cDnyilFU=';
@@ -24,14 +24,14 @@ $imageArrayHeader = array();
 $imageArrayHeader[] = "Content-Type: image/jpeg";
 
 
-$richMenu = Utils::newRichMenu();
+$richMenu = newRichMenu();
 
 
 if($message == "reply"){
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
 	$arrayPostData['messages'][0]['text'] = "User Id:".$id;
-	Utils::replyMsg($arrayHeader,$arrayPostData);
+	replyMsg($arrayHeader,$arrayPostData);
 }
 
 ////////////////// Get Rich Menu ////////////////////////
@@ -42,7 +42,7 @@ else if($message == "showRichMenu"){
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
 	$arrayPostData['messages'][0]['text'] = "RichId :".$RichMenuId;
-	Utils::ReplyMsg($arrayHeader,$arrayPostData);
+	ReplyMsg($arrayHeader,$arrayPostData);
 }
 
 
@@ -57,13 +57,13 @@ else if($message == "createRichMenu"){
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
 		$arrayPostData['messages'][0]['text'] = "Success!! RichMenuId: ".$newRichMenu['richMenuId'];
-		Utils::ReplyMsg($arrayHeader,$arrayPostData);
+		ReplyMsg($arrayHeader,$arrayPostData);
 	} 
 	else{
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
 		$arrayPostData['messages'][0]['text'] = "Fail to create";
-		Utils::ReplyMsg($arrayHeader,$arrayPostData);
+		ReplyMsg($arrayHeader,$arrayPostData);
 	}
 }
 
@@ -77,7 +77,7 @@ if($message == "setMenu"){
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
 	$arrayPostData['messages'][0]['text'] = "Set Complete ::".$setRichMenu;
-	Utils::ReplyMsg($arrayHeader,$arrayPostData);
+	ReplyMsg($arrayHeader,$arrayPostData);
 }
 
 
