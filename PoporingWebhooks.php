@@ -115,3 +115,10 @@ if($message == "News"){
 	$arrayPostData['messages'][0]['previewImageUrl'] = $image_url;
 	replyMsg($arrayHeader,$arrayPostData);
 }
+
+if($type == "postback"){
+	$arrayPostData['replyToken'] = $replyToken;
+	$arrayPostData['messages'][0]['type'] = "text";
+	$arrayPostData['messages'][0]['text'] = "Thank you for report please send me what you want: \n1. Text form\n2. Image\n3. Video\nWhen you finish please end with text #confirm .";
+	replyMsg($arrayHeader,$arrayPostData);
+}

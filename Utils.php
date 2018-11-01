@@ -77,9 +77,9 @@
                     ],
                     "action" => [    
                         "type" => "postback",
-                        "label" => "buyLabel",
-                        "data" => "action=buyAction",
-                        "text" => "buyText"
+                        "label" => "test PostBack",
+                        "data" => "action=Report",
+                        "text" => ""
                     ]
                   ]
             ]
