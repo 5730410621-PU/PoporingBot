@@ -73,7 +73,7 @@ else if($message == "createRichMenu"){
 }
 
 //////////////// Upload Rich Menu Image ///////////////////
-
+/*
 else if($message == "uploadImage"){
 	
 	$richId = getRichMenu($arrayHeader);
@@ -93,7 +93,7 @@ else if($message == "uploadImage"){
 	}
 }
 
-
+*/
 
 /////////////////////Set Rich Menu /////////////////////////////
 
@@ -101,7 +101,7 @@ else if($message == "setRichMenu"){
 
 	$richMenuId = getRichMenu($arrayHeader);
 	$setRichMenu = setRichMenu($arrayHeader,$richMenuId);
-	
+
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
 	$arrayPostData['messages'][0]['text'] = "Set Complete ::".$setRichMenu;
