@@ -77,7 +77,7 @@ else if($message == "uploadImage"){
 	if($uploaded != null){
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = "Success!! Upload complete.";
+		$arrayPostData['messages'][0]['text'] = $uploaded;
 		ReplyMsg($arrayHeader,$arrayPostData);
 	} 
 	else{
