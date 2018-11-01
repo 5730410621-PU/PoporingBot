@@ -134,7 +134,7 @@
 
     function uploadImage($arrayHeader,$richMenuId){
         $strUrl = "https://api.line.me/v2/bot/richmenu/$richMenuId/content";
-        $data = array('file' => '@/app/appinline_design.jpeg');
+        $data = array('file' => '@/appinline_design.jpg');
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
         curl_setopt($ch, CURLOPT_HEADER, false);
