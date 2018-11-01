@@ -1,5 +1,5 @@
 <?php
-$str = '{"richMenuId": "richmenu-88c05ef6921ae53f8b58a25f3a65faf7"}';
-$photo = __DIR__.'/appinline_design.jpeg';
-echo "<img src='".$photo."' />";
-//echo json_encode($str);
+
+$im = file_get_contents("./image.jpeg");
+header("Content-type: image/jpeg");
+echo $im;
