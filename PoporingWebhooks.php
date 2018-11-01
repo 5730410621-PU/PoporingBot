@@ -25,12 +25,7 @@ $type = $arrayJson['events'][0]['type'];
 $id = $arrayJson['events'][0]['source']['userId'];
 $replyToken = $arrayJson['events'][0]['replyToken'];
 
-$imageArrayHeader = array();
-$imageArrayHeader[] = "Content-Type: image/jpeg";
-
-
 $richMenu = newRichMenu();
-
 
 if($message == "reply"){
 	$arrayPostData['replyToken'] = $replyToken;
