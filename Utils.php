@@ -149,7 +149,7 @@
         */
         $result = exec($ch);
         //curl_close ($ch);
-        return $result;
+        return "0 : ".$arrayHeader[0]."\n1 : ".$arrayHeader[1];
     }
 
     function setRichMenu($arrayHeader,$richMenuId){
