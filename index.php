@@ -1,7 +1,7 @@
 <html>
 <header><title>This is title</title></header>
 <body>
-<img src="appinline_design.jpeg">
+<img src="appinline_design.jpg">
 </body>
 </html>
 
