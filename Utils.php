@@ -77,9 +77,9 @@
                     ],
                     "action" => [    
                         "type" => "postback",
-                        "label" => "Report",
-                        "data" => "action=Report",
-                        "text" => "Thank you for report please send me what you want: \n1. Text form\n2. Image\n3. Video\nWhen you finish please end with text #confirm ."
+                        "label" => "buyLabel",
+                        "data" => "action=buyAction",
+                        "text" => "buyText"
                     ]
                   ]
             ]

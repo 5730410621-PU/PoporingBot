@@ -115,9 +115,3 @@ if($message == "News"){
 	$arrayPostData['messages'][0]['previewImageUrl'] = $image_url;
 	replyMsg($arrayHeader,$arrayPostData);
 }
-else{
-	$arrayPostData['replyToken'] = $replyToken;
-	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = "Hello User via ".$message;
-	replyMsg($arrayHeader,$arrayPostData);
-}

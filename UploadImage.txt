@@ -1,0 +1,7 @@
+
+curl -v -X POST https://api.line.me/v2/bot/richmenu/richmenu-2a3b140fb9ef01452502eeddce1a2745/content -H "Authorization: Bearer o7QzwyoiRRAbnd0Ylquyd9BgFSP88lcRdo3Oy9HBBEP1Wq2C5oTKiiLC8LkCo2wNVYSLUvqxsmuY5RBVn3xjyFxm913dEQW6xPI1j6lvABZiV21xlLx8ifPyMrma2VJYu37dzVa/Xyp5oIysTAJ6wwdB04t89/1O/w1cDnyilFU=" -H "Content-Type: image/jpeg" -T appinline_design.jpg
+
+
+
+
+curl -v -X DELETE https://api.line.me/v2/bot/richmenu/richmenu-2a3b140fb9ef01452502eeddce1a2745 -H "Authorization: Bearer o7QzwyoiRRAbnd0Ylquyd9BgFSP88lcRdo3Oy9HBBEP1Wq2C5oTKiiLC8LkCo2wNVYSLUvqxsmuY5RBVn3xjyFxm913dEQW6xPI1j6lvABZiV21xlLx8ifPyMrma2VJYu37dzVa/Xyp5oIysTAJ6wwdB04t89/1O/w1cDnyilFU="
