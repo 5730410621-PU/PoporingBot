@@ -132,11 +132,12 @@
         
     }
 
+    /*
     function uploadImage($arrayHeader,$richMenuId){
         $strUrl = "https://api.line.me/v2/bot/richmenu/$richMenuId/content";
         $im = 'appinline_design.jpg';
         $ch = "curl -v -X POST ".$strUrl." -H ".$arrayHeader[1]." -T ".$im;
-        /*
+        
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
         curl_setopt($ch, CURLOPT_HEADER, false);
@@ -146,11 +147,12 @@
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        */
+        
         $result = exec($ch);
         //curl_close ($ch);
         return $result;
     }
+    */
 
     function setRichMenu($arrayHeader,$richMenuId){
         $strUrl = "https://api.line.me/v2/bot/user/all/richmenu/".$richMenuId;
@@ -181,6 +183,29 @@
         $result = json_decode(curl_exec($ch),true);
         $richId = $result['richmenus'][0]['richMenuId'];
         return $richId;
-        curl_close ($ch);
+        curl_close ($ch); 
+    }
+
+    function getImage($header,$imgId){
+        $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
+        $ch = "curl -v -X GET ".$strUrl."-o ".$im.".png"." -H ".$header;
+        /*
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+        curl_setopt($ch, CURLOPT_POST, false);
+        curl_setopt($ch, CURLOPT_VERBOSE, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        */
+    
+        $result = exec($ch); 
+        if($result != null){
+            return "OK!";
+        }
+        else{
+            return "fail";
+        }
+        return $richId;
         
     }
