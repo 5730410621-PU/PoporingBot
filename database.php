@@ -3,9 +3,8 @@
 include 'config.php' ;
 
 function openSession($id,$action){
-    
     $conn = sql();
-
+    $status = '1';
     $sql = "INSERT INTO open_session (u_id,action,status) VALUES ('$id','$action','$status')";
 
     if ($conn->query($sql) === TRUE) {
@@ -15,4 +14,24 @@ function openSession($id,$action){
     }
     $conn->close();
     return "result ::".$result;
+}
+
+function storeMessageData($id,$type,$message){
+    $conn = sql();
+    $sql = "SELECT id FROM open_session WHERE u_id == '$id' AND status == '1' ";
+    $linkId = $conn->query($sql);
+
+    if($linkId->num_rows > 0){
+        $gid = $result[0]['id'];
+        $sql = "INSERT INTO log (u_id,g_id,type,message) VALUES ('$id','$gid','$type','$message')";
+        if ($conn->query($sql) === TRUE) {
+            $result =  "Insert to log complete!!";
+        } else {
+            $result = "Error: ".$conn->error;
+        }
+    }else{
+        $result ="Can not insert this time";
+    }
+    return $result;
+    
 }
