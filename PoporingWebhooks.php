@@ -129,11 +129,10 @@ if($type == "postback"){
 	replyMsg($arrayHeader,$arrayPostData);
 }
 
-/*
-if($message == "createTable"){
+
+if($message == "createTable1"){
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = "Thank you for report please send me what you want: \n1. Text form\n2. Image\n3. Video\nWhen you finish please end with text #ยืนยัน .";
+	$arrayPostData['messages'][0]['text'] = createTable1();
 	replyMsg($arrayHeader,$arrayPostData);
 }
-*/
