@@ -13,18 +13,15 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = <<< SQL
- CREATE TABLE open_session (
- id INT NOT NULL AUTO_INCREMENT,
- u_id VARCHAR(45) NOT NULL,
- action VARCHAR(45) NOT NULL,
- status VARCHAR(45) NOT NULL,
- start_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
- end_time DATETIME NULL,
- PRIMARY KEY (id),
- UNIQUE INDEX id_UNIQUE (id ASC) 
- );
-SQL;
+$sql = "CREATE TABLE `log` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `u_id` VARCHAR(45) NOT NULL,
+    `g_id` VARCHAR(45) NOT NULL,
+    `type` VARCHAR(45) NOT NULL,
+    `message` VARCHAR(45) NOT NULL,
+    `time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    PRIMARY KEY (`id`),
+    UNIQUE INDEX `id_UNIQUE` (`id` ASC) );";
 
 if ($conn->query($sql) === TRUE) {
     echo "Create complete!!";
