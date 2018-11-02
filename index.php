@@ -44,7 +44,7 @@ if ($conn->query($sql) === TRUE) {
 echo "result ::".$result;
 */
 
-
+/*
 $sql = "SELECT * FROM open_session";
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -67,8 +67,7 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-
-
+*/
 
 
 /*

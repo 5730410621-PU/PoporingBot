@@ -6,8 +6,8 @@ function openSession($id,$action){
     $conn = sql();
     
     $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
-    
-    if($conn->query($sql) === TRUE){ 
+    $isOpened = $conn->query($sql);
+    if($isOpened ->num_rows == 0){ 
     $status = '1';
     $sql = "INSERT INTO open_session (u_id,action,status) VALUES ('$id','$action','$status')";
 
