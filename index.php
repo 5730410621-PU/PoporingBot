@@ -12,7 +12,7 @@ $conn = new mysqli($servername, $username, $password,$dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-
+/*
 $sql = "CREATE TABLE `log` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `u_id` VARCHAR(45) NOT NULL,
@@ -28,4 +28,5 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error: ".$conn->error;
 }
+*/
 $conn->close();
