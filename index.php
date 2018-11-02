@@ -26,10 +26,23 @@ if ($conn->query($sql) === TRUE) {
 }
 */
 $id = 'U838a39141a56615db66e65c954e5a036';
+$type = 'message';
+$message = 'Hello World';
 $action = 'Report';
 $status = '1';
 
 //$sql = "INSERT INTO open_session (u_id,action,status) VALUES ('$id','$action','$status')";
+
+/*
+$sql = "INSERT INTO open_session (u_id,action,status) VALUES ('$id','$action','$status')";
+
+if ($conn->query($sql) === TRUE) {
+    $result =  "open Session complete!!";
+} else {
+    $result = "Error: ".$conn->error;
+}
+echo "result ::".$result;
+*/
 
 /*
 $sql = "SELECT * FROM open_session";
@@ -53,6 +66,29 @@ if ($conn->query($sql) === TRUE) {
     $result = "Error: ".$conn->error;
 }
 echo $result;
+*/
+
+
+/*
+$sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
+$linkId = $conn->query($sql);
+$row = $linkId->fetch_assoc();
+$gid =$row["id"];
+/*
+if($linkId->num_rows > 0){
+    $gid = $linkId[0]['id'];
+    $sql = "INSERT INTO log (u_id,g_id,type,message) VALUES ('$id','$gid','$type','$message')";
+    if ($conn->query($sql) === TRUE) {
+        $result =  "Insert to log complete!!";
+    } else {
+        $result = "Error: ".$conn->error;
+    }
+}else{
+    $result ="Can not insert this time";
+}
+
+//echo $result;
+echo 'gid ::'.var_dump($gid);
 */
 
 $conn->close();
