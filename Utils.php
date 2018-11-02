@@ -188,7 +188,7 @@
 
     function getImage($header,$imgId){
         $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
-        $ch = "curl -v -X GET ".$strUrl."-o ".$im.".png"." -H "."$header";
+        $ch = "curl -v -X GET ".$strUrl."-o ".$im.".png"." -H ".'$header';
         
         /*
         curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
