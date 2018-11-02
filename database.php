@@ -4,6 +4,10 @@ include 'config.php' ;
 
 function openSession($id,$action){
     $conn = sql();
+    
+    $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
+    
+    if($conn->query($sql) === TRUE){ 
     $status = '1';
     $sql = "INSERT INTO open_session (u_id,action,status) VALUES ('$id','$action','$status')";
 
@@ -11,6 +15,9 @@ function openSession($id,$action){
         $result =  "open Session complete!!";
     } else {
         $result = "Error: ".$conn->error;
+    }
+    }else{
+        $result = "session is still opened.";
     }
     $conn->close();
     return "result ::".$result;
