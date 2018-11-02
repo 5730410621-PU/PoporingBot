@@ -1,6 +1,7 @@
 <?php 
 
 include 'Utils.php';
+include 'database.php';
 
 
 $accessToken = 'o7QzwyoiRRAbnd0Ylquyd9BgFSP88lcRdo3Oy9HBBEP1Wq2C5oTKiiLC8LkCo2wNVYSLUvqxsmuY5RBVn3xjyFxm913dEQW6xPI1j6lvABZiV21xlLx8ifPyMrma2VJYu37dzVa/Xyp5oIysTAJ6wwdB04t89/1O/w1cDnyilFU=';
@@ -103,8 +104,6 @@ else if($message == "setRichMenu"){
 	ReplyMsg($arrayHeader,$arrayPostData);
 }
 
-
-
 /////////////////// Rich Reply Menu ///////////////////////
 
 if($message == "News"){
@@ -117,8 +116,24 @@ if($message == "News"){
 }
 
 if($type == "postback"){
+
+	$action = substr($arrayJson['events'][0]['postback']['data'],7);
+
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = "Thank you for report please send me what you want: \n1. Text form\n2. Image\n3. Video\nWhen you finish please end with text #confirm .";
+//	$arrayPostData['messages'][0]['text'] = "Thank you for report please send me what you want: \n1. Text form\n2. Image\n3. Video\nWhen you finish please end with text #ยืนยัน .";
+	$arrayPostData['messages'][0]['text'] = $action;
+	$arrayPostData['messages'][1]['type'] = "text";
+	$arrayPostData['messages'][1]['text'] = openSession($id,$action);
+	
 	replyMsg($arrayHeader,$arrayPostData);
 }
+
+/*
+if($message == "createTable"){
+	$arrayPostData['replyToken'] = $replyToken;
+	$arrayPostData['messages'][0]['type'] = "text";
+	$arrayPostData['messages'][0]['text'] = "Thank you for report please send me what you want: \n1. Text form\n2. Image\n3. Video\nWhen you finish please end with text #ยืนยัน .";
+	replyMsg($arrayHeader,$arrayPostData);
+}
+*/
