@@ -17,7 +17,7 @@ function openSession($id,$action){
 }
 
 function storeMessageData($id,$type,$message){
-    
+    $conn = sql();
     $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
     $linkId = $conn->query($sql);
     $row = $linkId->fetch_assoc();
