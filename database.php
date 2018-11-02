@@ -20,7 +20,7 @@ function closeSession($id){
     $conn = sql();
     $status = '1';
     $dateNow = date("Y-m-d H:i:s");
-    $sql = "UPDATE open_session SET end_time = '$dateNow' AND status = '0' WHERE u_id = '$id' AND status = '1'";
+    $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
 
     if ($conn->query($sql) === TRUE) {
         $result =  "open Session complete!!";
