@@ -6,16 +6,16 @@ $dbname = "poporingbot";
 
 function createTable1(){
     $conn = new mysqli($servername, $username, $password, $dbname);
-    $sql = <<<SQL
-    CREATE TABLE `open_session` (
-        `id` INT NOT NULL AUTO_INCREMENT,
-        `u_id` VARCHAR(45) NOT NULL,
-        `action` VARCHAR(45) NOT NULL,
-        `status` VARCHAR(45) NOT NULL,
-        `start_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
-        `end_time` DATETIME NULL,
-        PRIMARY KEY (`id`),
-        UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+    $sql = <<< SQL
+    CREATE TABLE open_session (
+        id INT NOT NULL AUTO_INCREMENT,
+        u_id VARCHAR(45) NOT NULL,
+        action VARCHAR(45) NOT NULL,
+        status VARCHAR(45) NOT NULL,
+        start_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+        end_time DATETIME NULL,
+        PRIMARY KEY (id),
+        UNIQUE INDEX id_UNIQUE (id ASC) VISIBLE);
 SQL;
     
     if ($conn->query($sql) === TRUE) {
