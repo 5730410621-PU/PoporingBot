@@ -1,12 +1,8 @@
 <?php
-
-$servername = "den1.mysql5.gear.host";
-$username = "poporingbot";
-$password = "umbangtalad123!";
-$dbname = "poporingbot";
+include 'database.php';
 
 // Create connection
-$conn = new mysqli($servername, $username, $password,$dbname);
+$conn = sql();
 
 // Check connection
 if ($conn->connect_error) {
@@ -40,5 +36,6 @@ $sql = "INSERT INTO open_session (u_id,action,status) VALUES ('$id','$action','$
     } else {
         $result = "Error: ".$conn->error;
     }
+    print_r (openSession($id,$action));
     echo $result;
 $conn->close();
