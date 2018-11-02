@@ -62,7 +62,7 @@ $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]." uid:".$row["u_id"]." gid:".$row["gid"]." type:".$row["type"]." message:".$row["message"]. "<br>";
+        echo "id: " . $row["id"]." uid:".$row["u_id"]." gid:".$row["g_id"]." type:".$row["type"]." message:".$row["message"]. "<br>";
     }
 } else {
     echo "0 results";
@@ -79,9 +79,9 @@ if ($conn->query($sql) === TRUE) {
     $result = "Error: ".$conn->error;
 }
 echo $result;
-*/
 
-/*
+
+
 $sql = "DELETE FROM log WHERE type IN ('message')";
 if ($conn->query($sql) === TRUE) {
     $result =  "Delete complete!!";
@@ -99,18 +99,18 @@ $gid =$row["id"];
 
 if($linkId->num_rows > 0){
     
-    $sql = "INSERT INTO log (u_id,g_id,type,message) VALUES ('$id','$gid','$type','$message')";
-    if ($conn->query($sql) === TRUE) {
-        $result =  "Insert to log complete!!";
-    } else {
-        $result = "Error: ".$conn->error;
-    }
+    // $sql = "INSERT INTO log (u_id,g_id,type,message) VALUES ('$id','$gid','$type','$message')";
+    // if ($conn->query($sql) === TRUE) {
+    //     $result =  "Insert to log complete!!";
+    // } else {
+    //     $result = "Error: ".$conn->error;
+    // }
 }else{
     $result ="Can not insert this time";
 }
-
-echo $result;
 */
+
+
 
 
 $conn->close();
