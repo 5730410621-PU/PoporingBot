@@ -188,7 +188,8 @@
 
     function getImage($header,$imgId){
         $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
-        $ch = "curl -v -X GET ".$strUrl."-o ".$im.".png"." -H ".$header;
+        //$ch = "curl -v -X GET ".$strUrl."-o ".$im.".png"." -H ".$header;
+        $ch ="curl -v -X GET https://api.line.me/v2/bot/message/$imgId/content -o image.png -H 'Authorization: Bearer o7QzwyoiRRAbnd0Ylquyd9BgFSP88lcRdo3Oy9HBBEP1Wq2C5oTKiiLC8LkCo2wNVYSLUvqxsmuY5RBVn3xjyFxm913dEQW6xPI1j6lvABZiV21xlLx8ifPyMrma2VJYu37dzVa/Xyp5oIysTAJ6wwdB04t89/1O/w1cDnyilFU='";
         /*
         curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
         curl_setopt($ch, CURLOPT_POST, false);
