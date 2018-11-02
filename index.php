@@ -53,8 +53,21 @@ if ($result->num_rows > 0) {
         echo "id: " . $row["id"]." status:".$row["status"]." start_time:".$row["start_time"]." end_time:".$row["end_time"]. "<br>";
     }
 } else {
+    echo "0 results\n\n";
+}
+
+
+$sql = "SELECT * FROM log";
+$result =  $conn->query($sql);
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "id: " . $row["id"]." uid:".$row["u_id"]." gid:".$row["gid"]." type:".$row["type"]." message:".$row["message"]. "<br>";
+    }
+} else {
     echo "0 results";
 }
+
 
 
 
@@ -68,6 +81,15 @@ if ($conn->query($sql) === TRUE) {
 echo $result;
 */
 
+/*
+$sql = "DELETE FROM log WHERE type IN ('message')";
+if ($conn->query($sql) === TRUE) {
+    $result =  "Delete complete!!";
+} else {
+    $result = "Error: ".$conn->error;
+}
+echo $result;
+*/
 
 /*
 $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
