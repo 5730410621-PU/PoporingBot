@@ -1,13 +1,14 @@
-<html>
-<header><title>This is title</title></header>
-<body>
-<img src="appinline_design.jpg">
-</body>
-</html>
-
-
 <?php
 
-// $im = ("appinline_design.jpeg");
-// header("Content-type: image/jpeg");
-// echo $im;
+$servername = "den1.mysql5.gear.host";
+$username = "poporingbot";
+$password = "umbangtalad123!";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+echo "Connected successfully";
