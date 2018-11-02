@@ -23,6 +23,7 @@ $imageArrayHeader[] = $accessHeader;
 
 $message = $arrayJson['events'][0]['message']['text'];
 $type = $arrayJson['events'][0]['type'];
+$typeMessage = $arrayJson['events'][0]['message']['type'];
 $id = $arrayJson['events'][0]['source']['userId'];
 $replyToken = $arrayJson['events'][0]['replyToken'];
 
@@ -131,7 +132,7 @@ if($type == "postback"){
 
 
 
-if($type == "message" && $message == "#ยืนยัน"){
+if($typeMessage == "text" && $message == "#ยืนยัน"){
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
 	$arrayPostData['messages'][0]['text'] = "Thankyou for Report";
@@ -139,10 +140,18 @@ if($type == "message" && $message == "#ยืนยัน"){
 	$arrayPostData['messages'][0]['text'] = closeSession($id);	
 	replyMsg($arrayHeader,$arrayPostData);
 }
-else if($type == "message"){
+else if($typeMessage == "text"){
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
 	$arrayPostData['messages'][0]['text'] = storeMessageData($id,$type,$message);
 	//$arrayPostData['messages'][0]['text'] = 'test message type';
+	replyMsg($arrayHeader,$arrayPostData);
+}
+
+if($typeMessage == "image"){
+	$imgId = $arrayJson['events'][0]['message']['id'];
+	$arrayPostData['replyToken'] = $replyToken;
+	$arrayPostData['messages'][0]['type'] = "text";
+	$arrayPostData['messages'][0]['text'] = $imgId;
 	replyMsg($arrayHeader,$arrayPostData);
 }
