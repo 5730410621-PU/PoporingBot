@@ -125,7 +125,7 @@ if($type == "postback"){
 	$arrayPostData['messages'][1]['type'] = "text";
 	$arrayPostData['messages'][1]['text'] = openSession($id,$action) ;
 	
-	print_r (openSession($id,$action));
-	//replyMsg($arrayHeader,$arrayPostData);
+	//print_r (openSession($id,$action));
+	replyMsg($arrayHeader,$arrayPostData);
 }
 

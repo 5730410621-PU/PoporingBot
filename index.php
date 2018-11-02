@@ -31,11 +31,11 @@ $status = '1';
 
 //$sql = "INSERT INTO open_session (u_id,action,status) VALUES ('$id','$action','$status')";
 //$sql = "DELETE FROM open_session WHERE status IN ('1')";
-$sql = "SELECT * FROM open_session";
+//$sql = "SELECT * FROM open_session";
 
 //$result =  $conn->query($sql);
 
-/*
+
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
@@ -44,6 +44,6 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-*/
+
 
 $conn->close();
