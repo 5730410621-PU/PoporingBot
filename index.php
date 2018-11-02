@@ -29,13 +29,21 @@ $id = 'U838a39141a56615db66e65c954e5a036';
 $action = 'Report';
 $status = '1';
 
-$sql = "INSERT INTO open_session (u_id,action,status) VALUES ('$id','$action','$status')";
+//$sql = "INSERT INTO open_session (u_id,action,status) VALUES ('$id','$action','$status')";
+//$sql = "DELETE FROM open_session WHERE status IN ('1')";
+$sql = "SELECT * FROM open_session";
 
-    if ($conn->query($sql) === TRUE) {
-        $result =  "open Session complete!!";
-    } else {
-        $result = "Error: ".$conn->error;
+//$result =  $conn->query($sql);
+
+/*
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "id: " . $row["id"]. " - Name: " . $row["u_id"]. " " . $row["action"]. $row["status"]. "<br>";
     }
-    print_r (openSession($id,$action));
-    echo $result;
+} else {
+    echo "0 results";
+}
+*/
+
 $conn->close();
