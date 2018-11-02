@@ -132,6 +132,7 @@ if($type == "postback"){
 if($type == "message"){
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = storeMessageData($id,$type,$message) ;
+	//$arrayPostData['messages'][0]['text'] = storeMessageData($id,$type,$message) ;
+	$arrayPostData['messages'][0]['text'] = 'test message type';
 	replyMsg($arrayHeader,$arrayPostData);
 }
