@@ -201,7 +201,7 @@
     
         $result = exec($ch); 
         if($result != null){
-            return "OK!";
+            return $result;
         }
         else{
             return "fail";
