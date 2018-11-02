@@ -10,6 +10,10 @@ function openSession($id,$action){
     $conn = new mysqli($servername, $username, $password, $dbname);
     $status = '1';
 
+    $id = 'U838a39141a56615db66e65c954e5a036';
+    $action = 'Report';
+    $status = '1';
+
     $sql = "INSERT INTO open_session (u_id,action,status) VALUES ('$id','$action','$status')";
 
     if ($conn->query($sql) === TRUE) {
