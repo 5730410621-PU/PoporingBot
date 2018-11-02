@@ -26,8 +26,8 @@ $sql = <<< SQL
 SQL;
 
 if ($conn->query($sql) === TRUE) {
-    return  "Create complete!!";
+    echo "Create complete!!";
 } else {
-    return "Error: ".$conn->error;
+    echo "Error: ".$conn->error;
 }
 $conn->close();
