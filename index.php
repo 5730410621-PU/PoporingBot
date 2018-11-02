@@ -29,4 +29,12 @@ if ($conn->query($sql) === TRUE) {
     echo "Error: ".$conn->error;
 }
 */
+
+$sql = "INSERT INTO open_session (uid,action,status) VALUES ($id,$action,'i')";
+
+    if ($conn->query($sql) === TRUE) {
+        $result =  "open Session complete!!";
+    } else {
+        $result = "Error: ".$conn->error;
+    }
 $conn->close();
