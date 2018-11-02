@@ -123,7 +123,7 @@ if($type == "postback"){
 	$arrayPostData['messages'][0]['type'] = "text";
 	$arrayPostData['messages'][0]['text'] = "Thank you for report please send me what you want: \n1. Text form\n2. Image\n3. Video\nWhen you finish please end with text #ยืนยัน .";
 	$arrayPostData['messages'][1]['type'] = "text";
-	$arrayPostData['messages'][1]['text'] = $id."///".$action ;
+	$arrayPostData['messages'][1]['text'] = openSession($id,$action) ;
 	
 	replyMsg($arrayHeader,$arrayPostData);
 }
