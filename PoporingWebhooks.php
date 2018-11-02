@@ -129,7 +129,17 @@ if($type == "postback"){
 	replyMsg($arrayHeader,$arrayPostData);
 }
 
-if($type == "message"){
+
+
+if($type == "message" && $message == "#ยืนยัน"){
+	$arrayPostData['replyToken'] = $replyToken;
+	$arrayPostData['messages'][0]['type'] = "text";
+	$arrayPostData['messages'][0]['text'] = "Thankyou for Report";
+	$arrayPostData['messages'][0]['type'] = "text";
+	$arrayPostData['messages'][0]['text'] = closeSession($id);	
+	replyMsg($arrayHeader,$arrayPostData);
+}
+else if($type == "message"){
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
 	$arrayPostData['messages'][0]['text'] = storeMessageData($id,$type,$message);

@@ -44,18 +44,18 @@ if ($conn->query($sql) === TRUE) {
 echo "result ::".$result;
 */
 
-/*
+
 $sql = "SELECT * FROM open_session";
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " . $row["u_id"]. " " . $row["action"]. $row["status"]. "<br>";
+        echo "id: " . $row["id"]." status:".$row["status"]." start_time:".$row["start_time"]." end_time:".$row["end_time"]. "<br>";
     }
 } else {
     echo "0 results";
 }
-*/
+
 
 
 /*
@@ -69,7 +69,7 @@ echo $result;
 */
 
 
-
+/*
 $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
 $linkId = $conn->query($sql);
 $row = $linkId->fetch_assoc();
@@ -88,7 +88,7 @@ if($linkId->num_rows > 0){
 }
 
 echo $result;
-
+*/
 
 
 $conn->close();
