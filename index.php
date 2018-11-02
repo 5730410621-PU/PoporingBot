@@ -30,7 +30,7 @@ if ($conn->query($sql) === TRUE) {
 }
 */
 
-$sql = "INSERT INTO open_session (uid,action,status) VALUES ($id,$action,'i')";
+$sql = "INSERT INTO open_session (uid,action,status) VALUES ($id,$action,i)";
 
     if ($conn->query($sql) === TRUE) {
         $result =  "open Session complete!!";
