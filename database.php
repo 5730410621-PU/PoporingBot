@@ -8,7 +8,7 @@ $dbname = "poporingbot";
 
 function openSession($id,$action){
     $conn = new mysqli($servername, $username, $password, $dbname);
-    $status = 'i';
+    $status = `i`;
 
     $sql = "INSERT INTO open_session (u_id,action,status,end_time) VALUES ($id,$action,$status,NULL)";
 
