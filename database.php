@@ -18,5 +18,5 @@ function openSession($id,$action){
         $result = "Error: ".$conn->error;
     }
     $conn->close();
-    return "SQL ::"$sql."\nresult ::".$result;
+    return "SQL ::".$sql."\nresult ::".$result;
 }
