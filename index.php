@@ -23,7 +23,7 @@ $sql = <<< SQL
  end_time DATETIME NULL,
  PRIMARY KEY (id),
  UNIQUE INDEX id_UNIQUE (id ASC) VISIBLE
- )
+ );
 SQL;
 
 if ($conn->query($sql) === TRUE) {
