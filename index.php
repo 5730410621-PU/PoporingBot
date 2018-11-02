@@ -37,4 +37,5 @@ $sql = "INSERT INTO open_session (uid,action,status) VALUES ($id,$action,'i')";
     } else {
         $result = "Error: ".$conn->error;
     }
+    echo $result;
 $conn->close();
