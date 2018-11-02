@@ -205,7 +205,7 @@
             return $result;
         }
         else{
-            return "fail";
+            return var_dump($result);
         }
         return $richId;
         
