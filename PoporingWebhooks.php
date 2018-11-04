@@ -148,7 +148,6 @@ else if($typeMessage == "text"){
 	replyMsg($arrayHeader,$arrayPostData);
 }
 
-
 if($typeMessage == "image"){
 	$imgId = $arrayJson['events'][0]['message']['id'];
 	$arrayPostData['replyToken'] = $replyToken;
