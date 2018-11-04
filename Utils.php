@@ -190,14 +190,13 @@
 
         $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
         $ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$header'";
-        echo $ch."\n";
         $result = exec($ch); 
 
         if($result != null){
-            echo var_dump($result);
+            echo $ch."\n";
         }
         else{
-            echo var_dump($result);
+            echo $ch."\n";
         }
         
     }
