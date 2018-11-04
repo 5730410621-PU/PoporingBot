@@ -69,18 +69,25 @@ if ($result->num_rows > 0) {
 }
 
 */
+/*
+$accessToken = 'o7QzwyoiRRAbnd0Ylquyd9BgFSP88lcRdo3Oy9HBBEP1Wq2C5oTKiiLC8LkCo2wNVYSLUvqxsmuY5RBVn3xjyFxm913dEQW6xPI1j6lvABZiV21xlLx8ifPyMrma2VJYu37dzVa/Xyp5oIysTAJ6wwdB04t89/1O/w1cDnyilFU=';
+$imgId = "8813850836867";
+$jsonHeader = "Content-Type: application/json";
+$imageHeader = "Content-Type: image/jpeg";
+$accessHeader = "Authorization: Bearer {$accessToken}";
 
 $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
-$ch = "curl -v -X GET ".$strUrl."-o ".$im.".png"." -H ".'$header';
+$ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$accessHeader'";
+echo $ch."\n";
 $result = exec($ch); 
 
 if($result != null){
-    echo $result;
+    echo var_dump($result);
 }
 else{
     echo var_dump($result);
 }
-
+*/
 
 
 

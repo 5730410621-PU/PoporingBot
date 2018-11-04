@@ -148,7 +148,7 @@ else if($typeMessage == "text"){
 	replyMsg($arrayHeader,$arrayPostData);
 }
 
-/*
+
 if($typeMessage == "image"){
 	$imgId = $arrayJson['events'][0]['message']['id'];
 	$arrayPostData['replyToken'] = $replyToken;
@@ -156,12 +156,5 @@ if($typeMessage == "image"){
 	$arrayPostData['messages'][0]['text'] = getImage($accessHeader,$imgId);
 	replyMsg($arrayHeader,$arrayPostData);
 }
-*/
 
-if($typeMessage == "image"){
-	$imgId = $arrayJson['events'][0]['message']['id'];
-	$arrayPostData['replyToken'] = $replyToken;
-	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = $imgId;
-	replyMsg($arrayHeader,$arrayPostData);
-}
+

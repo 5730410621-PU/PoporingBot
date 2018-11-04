@@ -187,26 +187,17 @@
     }
 
     function getImage($header,$imgId){
+
         $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
-        $ch = "curl -v -X GET ".$strUrl."-o ".$im.".png"." -H ".'$header';
-        
-        /*
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-        curl_setopt($ch, CURLOPT_POST, false);
-        curl_setopt($ch, CURLOPT_VERBOSE, 1);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($ch, CURLOPT_HEADER, 0);
-        */
-    
+        $ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$header'";
+        echo $ch."\n";
         $result = exec($ch); 
+
         if($result != null){
-            return $result;
+            echo var_dump($result);
         }
         else{
-            return var_dump($result);
+            echo var_dump($result);
         }
-        return $richId;
         
     }
