@@ -195,6 +195,11 @@
         
         $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
         $ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$accessHeader'";
-        exec($ch,$output,$result); 
-        return "Result :: ".scandir('/app')." \nCh:: ".$ch;
+        exec($ch,$output,$result);
+        $test = " ";
+        $arr = scandir('/app');
+        foreach($element as $arr){
+            $test = $test.$element."\n";
+        }
+        return "Result :: ".$test." \nCh:: ".$ch;
     }
