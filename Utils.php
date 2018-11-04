@@ -187,7 +187,7 @@
     }
 
     function getImage($header,$imgId){
-
+        chdir('/../PoporingBot');
         $accessToken = 'o7QzwyoiRRAbnd0Ylquyd9BgFSP88lcRdo3Oy9HBBEP1Wq2C5oTKiiLC8LkCo2wNVYSLUvqxsmuY5RBVn3xjyFxm913dEQW6xPI1j6lvABZiV21xlLx8ifPyMrma2VJYu37dzVa/Xyp5oIysTAJ6wwdB04t89/1O/w1cDnyilFU=';
         $imgId = "8813850836867";
         $jsonHeader = "Content-Type: application/json";
@@ -196,10 +196,6 @@
         $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
         $ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$accessHeader'";
         exec($ch,$output,$result);
-        $test = " ";
-        $arr = scandir('/app');
-        foreach($element as $arr){
-            $test = $test.$element."\n";
-        }
-        return "Result :: ".$test." \nCh:: ".$ch;
+         
+        return "Result :: ".__DIR__." \nCh:: ".$ch;
     }
