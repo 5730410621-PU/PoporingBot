@@ -44,7 +44,7 @@ if ($conn->query($sql) === TRUE) {
 echo "result ::".$result;
 */
 
-
+/*
 $sql = "SELECT * FROM open_session";
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -67,6 +67,20 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
+
+*/
+
+$strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
+$ch = "curl -v -X GET ".$strUrl."-o ".$im.".png"." -H ".'$header';
+$result = exec($ch); 
+
+if($result != null){
+    echo $result;
+}
+else{
+    echo var_dump($result);
+}
+
 
 
 
