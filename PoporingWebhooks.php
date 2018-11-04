@@ -152,8 +152,8 @@ if($typeMessage == "image"){
 	$imgId = $arrayJson['events'][0]['message']['id'];
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
-//	$arrayPostData['messages'][0]['text'] = getImage($accessHeader,$imgId);
-$arrayPostData['messages'][0]['text'] = 'test Image type';
+	$arrayPostData['messages'][0]['text'] = getImage($accessHeader,$imgId);
+//  $arrayPostData['messages'][0]['text'] = 'test Image type';
 	replyMsg($arrayHeader,$arrayPostData);
 }
 
