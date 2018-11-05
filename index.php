@@ -62,7 +62,7 @@ $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]." uid:".$row["u_id"]." gid:".$row["g_id"]." type:".$row["type"]." message:".$row["message"]. "<br>";
+        echo "id: " . $row["id"]." uid: ".$row["u_id"]." gid: ".$row["g_id"]." type: ".$row["type"]." message: ".$row["message"]. "<br>";
     }
 } else {
     echo "0 results";

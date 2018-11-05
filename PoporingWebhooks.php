@@ -172,7 +172,6 @@ if($type == "postback"){
 else if($type == "message"){
 
 	if($typeMessage == "text" && $message == "###"){
-		closeSession($id);
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
 		$arrayPostData['messages'][0]['text'] = closeSession($id);
