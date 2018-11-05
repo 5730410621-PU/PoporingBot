@@ -133,7 +133,6 @@ if($type == "postback"){
 else if($type == "message"){
 
 	if($typeMessage == "text" && $message == "#ยืนยัน"){
-
 		closeSession($id);
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
@@ -142,22 +141,20 @@ else if($type == "message"){
 	}
 	
 	else if($typeMessage == "text"){
+		storeMessageData($id,$type,$message);
+	}
+
+	else if($typeMessage == "image" && $typeMessage == "video"){
+		$imgVideoId = $arrayJson['events'][0]['message']['id'];
+		
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = storeMessageData($id,$type,$message);
+		$arrayPostData['messages'][0]['text'] = storeImageVideoData($accessHeader,$imgVideoId);
 		//$arrayPostData['messages'][0]['text'] = 'test message type';
 		replyMsg($arrayHeader,$arrayPostData);
 	}
 
-	else if($typeMessage == "image" ){
-		$imgId = $arrayJson['events'][0]['message']['id'];
-		$arrayPostData['replyToken'] = $replyToken;
-		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = storeImageData($accessHeader,$imgId);
-		//$arrayPostData['messages'][0]['text'] = 'test message type';
-		replyMsg($arrayHeader,$arrayPostData);
-	}
-
+	/*
 	else if($typeMessage == "video" ){
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
@@ -165,7 +162,7 @@ else if($type == "message"){
 		//$arrayPostData['messages'][0]['text'] = 'test message type';
 		replyMsg($arrayHeader,$arrayPostData);
 	}
-
+	*/
 
 }
 

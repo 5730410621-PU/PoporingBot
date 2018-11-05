@@ -20,7 +20,7 @@ function openSession($id,$action){
         $result = "คุณได้อยู่ในสถานะแจ้งปัญหาเรียบร้อยแล้ว กรุณาแจ้งปัญหาได้เลยครับ";
     }
     $conn->close();
-    return "result ::".$result;
+    return $result;
 }
 
 function closeSession($id){
@@ -45,14 +45,29 @@ function storeMessageData($id,$type,$message){
     $row = $linkId->fetch_assoc();
     $gid =$row["id"];
     
-    if($gid != null){
-        
+    if($gid != null){      
         $sql = "INSERT INTO log (u_id,g_id,type,message) VALUES ('$id','$gid','$type','$message')";
-        if ($conn->query($sql) === TRUE) {
-            $result =  "รับการแจ้งปัญหาเรียบร้อย สามารถพิมพ์ #ยืนยัน เพื่อจบการแจ้งปัญหา";
-        } else {
-            $result = "Error: ".$conn->error;
-        }
+    }
+}
+
+function storeImageVideoData($header,$imgId){
+    $conn = sql();
+    $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
+    $linkId = $conn->query($sql);
+    $row = $linkId->fetch_assoc();
+    $gid =$row["id"];
+    
+    if($gid != null){
+
+        /*
+        $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
+        $ch = "curl -v -X "." GET ".$strUrl." -H '"."$header'"; //Binary File
+        //$ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$accessHeader'"; //png File
+        exec($ch,$output,$errorCode);
+        */
+
+        $result = "Test Image and Video";
+
     }
     return $result; 
 }

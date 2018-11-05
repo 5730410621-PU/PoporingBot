@@ -44,7 +44,7 @@ if ($conn->query($sql) === TRUE) {
 echo "result ::".$result;
 */
 
-
+/*
 $sql = "SELECT * FROM open_session";
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -68,7 +68,7 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-
+*/
 //echo "Result :: ".scandir('/app');
 
 
@@ -112,18 +112,21 @@ if($linkId->num_rows > 0){
 }
 */
 
-/*
+
 $accessToken = 'o7QzwyoiRRAbnd0Ylquyd9BgFSP88lcRdo3Oy9HBBEP1Wq2C5oTKiiLC8LkCo2wNVYSLUvqxsmuY5RBVn3xjyFxm913dEQW6xPI1j6lvABZiV21xlLx8ifPyMrma2VJYu37dzVa/Xyp5oIysTAJ6wwdB04t89/1O/w1cDnyilFU=';
 $imgId = "8813850836867";
 $jsonHeader = "Content-Type: application/json";
 $accessHeader = "Authorization: Bearer {$accessToken}";
 
 $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
-$ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$accessHeader'";
+//$ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$accessHeader'";
+$ch = "curl -v -X "." GET ".$strUrl." -H '"."$accessHeader'";
 exec($ch,$output,$result);
- 
-return "Result :: ".__DIR__." \nCh:: ".$ch;
+echo "<pre>"; 
+ print_r($output); 
+echo "/<pre>"; 
 
-*/
+
+
 
 $conn->close();
