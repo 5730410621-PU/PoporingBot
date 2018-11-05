@@ -67,7 +67,7 @@ function storeImageVideoData($id,$header,$imgId){
         //$ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$accessHeader'"; //png File
         exec($ch,$output,$errorCode);
         */
-        $result = "Test Image and Video";
+ 
     }
     
 
