@@ -51,22 +51,24 @@ function storeMessageData($id,$type,$message){
 }
 
 function storeImageVideoData($id,$header,$imgId){
+    
+    /*
     $conn = sql();
     $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
     $linkId = $conn->query($sql);
     $row = $linkId->fetch_assoc();
     $gid =$row["id"];
+
     if($gid != null){
 
-        /*
+        
         $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
         $ch = "curl -v -X "." GET ".$strUrl." -H '"."$header'"; //Binary File
         //$ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$accessHeader'"; //png File
         exec($ch,$output,$errorCode);
-        */
-
-        $result = "Test Image and Video";
-
+        
     }
+    */
+    $result = "Test Image and Video";
     return $result; 
 }
