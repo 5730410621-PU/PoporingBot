@@ -70,7 +70,7 @@ function storeImageVideoData($id,$header,$imgId,$typeMessage){
         //$ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$accessHeader'"; //png File
         exec($ch,$output,$errorCode);
         */
-        if($typeMessage == "Video"){
+        if($typeMessage == "video"){
             $path = "/storage/video/$imgId.mp4";
         }
         else{
