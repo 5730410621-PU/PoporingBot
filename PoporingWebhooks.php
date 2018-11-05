@@ -130,28 +130,28 @@ if($type == "postback"){
 		//print_r (openSession($id,$action));
 		replyMsg($arrayHeader,$arrayPostData);
 	}
-	else if("Poll"){
+	else if($action == "Poll"){
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
 		$arrayPostData['messages'][0]['text'] = "Rap Thailand 4.0  กับ ประเทศกูมี";
 		//print_r (openSession($id,$action));
 		replyMsg($arrayHeader,$arrayPostData);
 	}
-	else if("Quiz"){
+	else if($action == "Quiz"){
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
 		$arrayPostData['messages'][0]['text'] = "รู้หรือไม่ ไก่กับไข่อะไรเกิดก่อนกัน";
 		//print_r (openSession($id,$action));
 		replyMsg($arrayHeader,$arrayPostData);
 	}
-	else if("News"){
+	else if($action == "News"){
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
 		$arrayPostData['messages'][0]['text'] = "นายกรัฐมนตรีประกาศลาออกเพื่อมีการจัดเลือกตั้งในวันที่...(คลิ๊ก)";
 		//print_r (openSession($id,$action));
 		replyMsg($arrayHeader,$arrayPostData);
 	}
-	else if("Vr/Ar"){
+	else if($action == "Vr/Ar"){
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
 		$arrayPostData['messages'][0]['text'] = "ทดสอบระบบ Ar และ Vr กันเลย";
@@ -192,33 +192,5 @@ else if($type == "message"){
 		//$arrayPostData['messages'][0]['text'] = 'test message type';
 		replyMsg($arrayHeader,$arrayPostData);
 	}
-
-	/*
-	else if($typeMessage == "video" ){
-		$arrayPostData['replyToken'] = $replyToken;
-		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = storeImageData($accessHeader,$type,$message);
-		//$arrayPostData['messages'][0]['text'] = 'test message type';
-		replyMsg($arrayHeader,$arrayPostData);
-	}
-	*/
-
 }
-
-
-
-/*
-
-
-if($typeMessage == "image"){
-	$imgId = $arrayJson['events'][0]['message']['id'];
-	$arrayPostData['replyToken'] = $replyToken;
-	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = getImage($accessHeader,$imgId);
-//  $arrayPostData['messages'][0]['text'] = 'test Image type';
-	replyMsg($arrayHeader,$arrayPostData);
-}
-*/
-
-
 //////////////////////// End User Process  /////////////////////////////////
