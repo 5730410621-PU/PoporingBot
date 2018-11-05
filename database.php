@@ -12,12 +12,12 @@ function openSession($id,$action){
     $sql = "INSERT INTO open_session (u_id,action,status) VALUES ('$id','$action','$status')";
 
     if ($conn->query($sql) === TRUE) {
-        $result =  "open Session complete!!";
+        $result =  "กรุณาแจ้งปัญหากับทางเรา หลังจากแจ้งแล้วให้กด\n #ยืนยัน \nเพื่อจบการแจ้งปัญหาครับ";
     } else {
         $result = "Error: ".$conn->error;
     }
     }else{
-        $result = "session is still opened.";
+        $result = "คุณได้อยู่ในสถานะแจ้งปัญหาเรียบร้อยแล้ว กรุณาแจ้งปัญหาได้เลยครับ";
     }
     $conn->close();
     return "result ::".$result;
@@ -30,15 +30,13 @@ function closeSession($id){
     $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
 
     if ($conn->query($sql) === TRUE) {
-        $result =  "Session is closed!!";
+        $result = "เราได้รับปัญหาแล้ว ทางเราจะทำการดำเนินการให้ไวที่สุด ขอบคุณสำหรับการแจ้งปัญหาครับ";
     } else {
         $result = "Error: ".$conn->error;
     }
     $conn->close();
     return "result ::".$result;
 }
-
-
 
 function storeMessageData($id,$type,$message){
     $conn = sql();
@@ -51,12 +49,12 @@ function storeMessageData($id,$type,$message){
         
         $sql = "INSERT INTO log (u_id,g_id,type,message) VALUES ('$id','$gid','$type','$message')";
         if ($conn->query($sql) === TRUE) {
-            $result =  "Insert to log complete!!";
+            $result =  "รับการแจ้งปัญหาเรียบร้อย สามารถพิมพ์ #ยืนยัน เพื่อจบการแจ้งปัญหา";
         } else {
             $result = "Error: ".$conn->error;
         }
     }else{
-        $result ="Can not insert this time";
+        $result ="ไม่แจ้ง!!";
     }
     return $result;
     

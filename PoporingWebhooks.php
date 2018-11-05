@@ -122,10 +122,10 @@ if($message == "News"){
 if($type == "postback"){
 
 	$action = substr($arrayJson['events'][0]['postback']['data'],7);
-	openSession($id,$action);
+	
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = "กรุณาแจ้งปัญหากับทางเรา หลังจากแจ้งแล้วให้กด\n # ยืนยัน \nเพื่อจบการแจ้งปัญหาครับ";
+	$arrayPostData['messages'][0]['text'] = openSession($id,$action);;
 	//print_r (openSession($id,$action));
 	replyMsg($arrayHeader,$arrayPostData);
 }
@@ -134,16 +134,19 @@ else if($type == "message"){
 
 	if($typeMessage == "text" && $message == "#ยืนยัน"){
 
+		closeSession($id);
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = "ทางเราจะทำการดำเนินการให้ไวที่สุด ขอบคุณสำหรับการแจ้งปัญหาครับ";
-		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = closeSession($id);	
+		$arrayPostData['messages'][0]['text'] = closeSession($id);
 		replyMsg($arrayHeader,$arrayPostData);
 	}
 	
-	else{
-		
+	else if($typeMessage == "text"){
+		$arrayPostData['replyToken'] = $replyToken;
+		$arrayPostData['messages'][0]['type'] = "text";
+		$arrayPostData['messages'][0]['text'] = storeMessageData($id,$type,$message);
+		//$arrayPostData['messages'][0]['text'] = 'test message type';
+		replyMsg($arrayHeader,$arrayPostData);
 	}
 
 
@@ -153,14 +156,6 @@ else if($type == "message"){
 
 /*
 
-
-else if($typeMessage == "text"){
-	$arrayPostData['replyToken'] = $replyToken;
-	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = storeMessageData($id,$type,$message);
-	//$arrayPostData['messages'][0]['text'] = 'test message type';
-	replyMsg($arrayHeader,$arrayPostData);
-}
 
 if($typeMessage == "image"){
 	$imgId = $arrayJson['events'][0]['message']['id'];
