@@ -117,30 +117,43 @@ if($message == "News"){
 }
 
 
-//////////////////////// S User Process  /////////////////////////////////
+//////////////////////// Start User Process  /////////////////////////////////
 
 if($type == "postback"){
 
 	$action = substr($arrayJson['events'][0]['postback']['data'],7);
-
+	openSession($id,$action);
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = "กรุณาแจ้งปัญหากับทางเรา หลังจากแจ้งแล้วให้กด # ยืนยัน เพื่อจบการแจ้งปัญหา";
-	$arrayPostData['messages'][1]['type'] = "text";
-	$arrayPostData['messages'][1]['text'] = openSession($id,$action) ;
+	$arrayPostData['messages'][0]['text'] = "กรุณาแจ้งปัญหากับทางเรา หลังจากแจ้งแล้วให้กด\n # ยืนยัน \nเพื่อจบการแจ้งปัญหาครับ";
 	//print_r (openSession($id,$action));
 	replyMsg($arrayHeader,$arrayPostData);
 }
 
+else if($type == "message"){
 
-if($typeMessage == "text" && $message == "#ยืนยัน"){
-	$arrayPostData['replyToken'] = $replyToken;
-	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = "Thankyou for Report";
-	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = closeSession($id);	
-	replyMsg($arrayHeader,$arrayPostData);
+	if($typeMessage == "text" && $message == "#ยืนยัน"){
+
+		$arrayPostData['replyToken'] = $replyToken;
+		$arrayPostData['messages'][0]['type'] = "text";
+		$arrayPostData['messages'][0]['text'] = "ทางเราจะทำการดำเนินการให้ไวที่สุด ขอบคุณสำหรับการแจ้งปัญหาครับ";
+		$arrayPostData['messages'][0]['type'] = "text";
+		$arrayPostData['messages'][0]['text'] = closeSession($id);	
+		replyMsg($arrayHeader,$arrayPostData);
+	}
+	
+	else{
+		
+	}
+
+
 }
+
+
+
+/*
+
+
 else if($typeMessage == "text"){
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
@@ -157,5 +170,7 @@ if($typeMessage == "image"){
 //  $arrayPostData['messages'][0]['text'] = 'test Image type';
 	replyMsg($arrayHeader,$arrayPostData);
 }
+*/
 
 
+//////////////////////// End User Process  /////////////////////////////////
