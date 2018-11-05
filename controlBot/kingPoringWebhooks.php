@@ -97,9 +97,6 @@ if($message == "News"){
 	replyMsg($arrayHeader,$arrayPostData);
 }
 
-$arrayPostData['replyToken'] = $replyToken;
-$arrayPostData['messages'][0]['type'] = "text";
-$arrayPostData['messages'][0]['text'] = $message;
-replyMsg($arrayHeader,$arrayPostData);
-
+$strUrl = "https://api.line.me/v2/bot/richmenu/list";
+$ch = "curl -v -X GET ".$strUrl." -H '"."$targetHeader'";
 echo $ch;
