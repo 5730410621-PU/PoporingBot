@@ -186,13 +186,21 @@
         curl_close ($ch); 
     }
 
-    function getImage($header,$imgId){
-        chdir('/../PoporingBot');
+    function getImage($header,$imgId){      
+        $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
+        $ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$header'";
+        exec($ch,$output,$result);
+         
+        return "Result :: ".__DIR__." \nCh:: ".$ch;
+    }
+
+    function getVideo($header,$imgId){
+  
         $accessToken = 'o7QzwyoiRRAbnd0Ylquyd9BgFSP88lcRdo3Oy9HBBEP1Wq2C5oTKiiLC8LkCo2wNVYSLUvqxsmuY5RBVn3xjyFxm913dEQW6xPI1j6lvABZiV21xlLx8ifPyMrma2VJYu37dzVa/Xyp5oIysTAJ6wwdB04t89/1O/w1cDnyilFU=';
         $imgId = "8813850836867";
         $jsonHeader = "Content-Type: application/json";
         $accessHeader = "Authorization: Bearer {$accessToken}";
-        
+    
         $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
         $ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$accessHeader'";
         exec($ch,$output,$result);

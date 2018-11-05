@@ -46,7 +46,7 @@ function storeMessageData($id,$type,$message){
     $linkId = $conn->query($sql);
     $row = $linkId->fetch_assoc();
     $gid =$row["id"];
-
+    
     if($linkId->num_rows > 0){
         
         $sql = "INSERT INTO log (u_id,g_id,type,message) VALUES ('$id','$gid','$type','$message')";

@@ -116,20 +116,21 @@ if($message == "News"){
 	replyMsg($arrayHeader,$arrayPostData);
 }
 
+
+//////////////////////// S User Process  /////////////////////////////////
+
 if($type == "postback"){
 
 	$action = substr($arrayJson['events'][0]['postback']['data'],7);
 
 	$arrayPostData['replyToken'] = $replyToken;
 	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = "Thank you for report please send me what you want: \n1. Text form\n2. Image\n3. Video\nWhen you finish please end with text #ยืนยัน .";
+	$arrayPostData['messages'][0]['text'] = "กรุณาแจ้งปัญหากับทางเรา หลังจากแจ้งแล้วให้กด # ยืนยัน เพื่อจบการแจ้งปัญหา";
 	$arrayPostData['messages'][1]['type'] = "text";
 	$arrayPostData['messages'][1]['text'] = openSession($id,$action) ;
-	
 	//print_r (openSession($id,$action));
 	replyMsg($arrayHeader,$arrayPostData);
 }
-
 
 
 if($typeMessage == "text" && $message == "#ยืนยัน"){
