@@ -12,7 +12,7 @@ function openSession($id,$action){
     $sql = "INSERT INTO open_session (u_id,action,status) VALUES ('$id','$action','$status')";
 
     if ($conn->query($sql) === TRUE) {
-        $result =  "กรุณาแจ้งปัญหากับทางเรา หลังจากแจ้งแล้วให้กด\n #ยืนยัน \nเพื่อจบการแจ้งปัญหาครับ";
+        $result =  "กรุณาแจ้งปัญหากับทางเรา หลังจากแจ้งแล้วให้กด\n#ยืนยัน \nเพื่อจบการแจ้งปัญหาครับ";
     } else {
         $result = "Error: ".$conn->error;
     }
@@ -35,7 +35,7 @@ function closeSession($id){
         $result = "Error: ".$conn->error;
     }
     $conn->close();
-    return "result ::".$result;
+    return $result;
 }
 
 function storeMessageData($id,$type,$message){
@@ -45,7 +45,7 @@ function storeMessageData($id,$type,$message){
     $row = $linkId->fetch_assoc();
     $gid =$row["id"];
     
-    if($linkId->num_rows > 0){
+    if($gid != null){
         
         $sql = "INSERT INTO log (u_id,g_id,type,message) VALUES ('$id','$gid','$type','$message')";
         if ($conn->query($sql) === TRUE) {
@@ -53,9 +53,6 @@ function storeMessageData($id,$type,$message){
         } else {
             $result = "Error: ".$conn->error;
         }
-    }else{
-        $result ="ไม่แจ้ง!!";
     }
-    return $result;
-    
+    return $result; 
 }

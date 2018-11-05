@@ -149,6 +149,23 @@ else if($type == "message"){
 		replyMsg($arrayHeader,$arrayPostData);
 	}
 
+	else if($typeMessage == "image" ){
+		$imgId = $arrayJson['events'][0]['message']['id'];
+		$arrayPostData['replyToken'] = $replyToken;
+		$arrayPostData['messages'][0]['type'] = "text";
+		$arrayPostData['messages'][0]['text'] = storeImageData($accessHeader,$imgId);
+		//$arrayPostData['messages'][0]['text'] = 'test message type';
+		replyMsg($arrayHeader,$arrayPostData);
+	}
+
+	else if($typeMessage == "video" ){
+		$arrayPostData['replyToken'] = $replyToken;
+		$arrayPostData['messages'][0]['type'] = "text";
+		$arrayPostData['messages'][0]['text'] = storeImageData($accessHeader,$type,$message);
+		//$arrayPostData['messages'][0]['text'] = 'test message type';
+		replyMsg($arrayHeader,$arrayPostData);
+	}
+
 
 }
 
