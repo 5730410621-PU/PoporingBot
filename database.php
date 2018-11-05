@@ -50,13 +50,12 @@ function storeMessageData($id,$type,$message){
     }
 }
 
-function storeImageVideoData($header,$imgId){
+function storeImageVideoData($id,$header,$imgId){
     $conn = sql();
     $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
     $linkId = $conn->query($sql);
     $row = $linkId->fetch_assoc();
     $gid =$row["id"];
-    
     if($gid != null){
 
         /*

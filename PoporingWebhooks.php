@@ -149,7 +149,7 @@ else if($type == "message"){
 		
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = storeImageVideoData($accessHeader,$imgVideoId);
+		$arrayPostData['messages'][0]['text'] = storeImageVideoData($id,$accessHeader,$imgVideoId);
 		//$arrayPostData['messages'][0]['text'] = 'test message type';
 		replyMsg($arrayHeader,$arrayPostData);
 	}
