@@ -31,13 +31,13 @@ function closeSession($id){
         $dateNow = date("Y-m-d H:i:s");
         $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
         if ($conn->query($sql) === TRUE) {
-            $result = "เราได้รับปัญหาแล้ว ทางเราจะทำการดำเนินการให้ไวที่สุด ขอบคุณสำหรับการแจ้งปัญหาครับ";
+            return "เราได้รับปัญหาแล้ว ทางเราจะทำการดำเนินการให้ไวที่สุด ขอบคุณสำหรับการแจ้งปัญหาครับ";
         } else {
-            $result = "Error: ".$conn->error;
+            return "Error: ".$conn->error;
         }
     }
     $conn->close();
-    return $result;
+
 }
 
 function storeMessageData($id,$type,$message){
@@ -49,6 +49,7 @@ function storeMessageData($id,$type,$message){
     
     if($gid != null){      
         $sql = "INSERT INTO log (u_id,g_id,type,message) VALUES ('$id','$gid','$type','$message')";
+        conn->query($sql);
     }
 }
 
@@ -76,6 +77,7 @@ function storeImageVideoData($id,$header,$imgId,$typeMessage){
             $path = "/storage/video/$imgId.png";
         }
         $sql = "INSERT INTO log (u_id,g_id,type,message) VALUES ('$id','$gid','$typeMessage','$path')";
+        conn->query($sql);
     }
     
 
