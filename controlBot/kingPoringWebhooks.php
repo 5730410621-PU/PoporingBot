@@ -22,12 +22,10 @@ $replyToken = $arrayJson['events'][0]['replyToken'];
 
 $richMenu = newRichMenu();
 
-if($message == "reply"){
-	$arrayPostData['replyToken'] = $replyToken;
-	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = "This Bot can reply";
-	replyMsg($arrayHeader,$arrayPostData);
-}
+$arrayPostData['replyToken'] = $replyToken;
+$arrayPostData['messages'][0]['type'] = "text";
+$arrayPostData['messages'][0]['text'] = "This Bot can reply";
+replyMsg($arrayHeader,$arrayPostData);
 
 function replyMsg($arrayHeader,$arrayPostData){
 	$strUrl = "https://api.line.me/v2/bot/message/reply";
@@ -45,7 +43,7 @@ function replyMsg($arrayHeader,$arrayPostData){
 
 ////////////////// Get Rich Menu ////////////////////////
 
-else if($message == "showRichMenu"){
+if($message == "showRichMenu"){
 
 	$RichMenuId = getRichMenu($arrayHeader);
 	$arrayPostData['replyToken'] = $replyToken;
@@ -124,3 +122,4 @@ if($message == "News"){
 }
 
 
+echo "OK";
