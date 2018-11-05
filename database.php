@@ -49,7 +49,7 @@ function storeMessageData($id,$type,$message){
     
     if($gid != null){      
         $sql = "INSERT INTO log (u_id,g_id,type,message) VALUES ('$id','$gid','$type','$message')";
-        conn->query($sql);
+        $conn->query($sql);
     }
 }
 
@@ -77,9 +77,7 @@ function storeImageVideoData($id,$header,$imgId,$typeMessage){
             $path = "/storage/video/$imgId.png";
         }
         $sql = "INSERT INTO log (u_id,g_id,type,message) VALUES ('$id','$gid','$typeMessage','$path')";
-        conn->query($sql);
+        $conn->query($sql);
     }
     
-
-    return $result; 
 }
