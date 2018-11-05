@@ -151,7 +151,7 @@ if($type == "postback"){
 		//print_r (openSession($id,$action));
 		replyMsg($arrayHeader,$arrayPostData);
 	}
-	else if($action == "Vr/Ar"){
+	else if($action == "Ar/Vr"){
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
 		$arrayPostData['messages'][0]['text'] = "ทดสอบระบบ Ar และ Vr กันเลย";
