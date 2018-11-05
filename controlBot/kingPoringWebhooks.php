@@ -9,7 +9,6 @@ $arrayJson = json_decode($content, true);
 
 $jsonHeader = "Content-Type: application/json";
 $accessHeader = "Authorization: Bearer {$accessToken}";
-
 $arrayHeader = array();
 $arrayHeader[] = $jsonHeader;
 $arrayHeader[] = $accessHeader;
@@ -22,28 +21,9 @@ $replyToken = $arrayJson['events'][0]['replyToken'];
 
 $richMenu = newRichMenu();
 
-$arrayPostData['replyToken'] = $replyToken;
-$arrayPostData['messages'][0]['type'] = "text";
-$arrayPostData['messages'][0]['text'] = "This Bot can reply";
-replyMsg($arrayHeader,$arrayPostData);
-
-function replyMsg($arrayHeader,$arrayPostData){
-	$strUrl = "https://api.line.me/v2/bot/message/reply";
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL,$strUrl);
-	curl_setopt($ch, CURLOPT_HEADER, false);
-	curl_setopt($ch, CURLOPT_POST, true);
-	curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);    
-	curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($arrayPostData));
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-	$result = curl_exec($ch);
-	curl_close ($ch);
-}
-
 ////////////////// Get Rich Menu ////////////////////////
 
-if($message == "showRichMenu"){
+if($message == "getRichMenu"){
 
 	$RichMenuId = getRichMenu($arrayHeader);
 	$arrayPostData['replyToken'] = $replyToken;
@@ -95,8 +75,6 @@ else if($message == "uploadImage"){
 	}
 }
 
-
-
 /////////////////////Set Rich Menu /////////////////////////////
 
 else if($message == "setRichMenu"){
@@ -110,7 +88,7 @@ else if($message == "setRichMenu"){
 	ReplyMsg($arrayHeader,$arrayPostData);
 }
 
-/////////////////// Rich Reply Menu ///////////////////////
+/////////////////// Test Rich Menu ///////////////////////
 
 if($message == "News"){
 	$image_url = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
@@ -121,5 +99,9 @@ if($message == "News"){
 	replyMsg($arrayHeader,$arrayPostData);
 }
 
+$arrayPostData['replyToken'] = $replyToken;
+$arrayPostData['messages'][0]['type'] = "text";
+$arrayPostData['messages'][0]['text'] = $message;
+replyMsg($arrayHeader,$arrayPostData);
 
-echo "OK";
+echo $ch;
