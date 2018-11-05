@@ -111,8 +111,7 @@
         exec($ch,$output,$error);
         $result = json_decode($output,true);
         $richId = $result['richmenus'][0]['richMenuId'];
-        return $richId;
-        curl_close ($ch); 
+        return $ch;
     }
 
     function createRichMenu($arrayHeader,$arrayPostData){
