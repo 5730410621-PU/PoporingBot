@@ -16,8 +16,10 @@
                         "height" => 843
                   ],
                       "action" => [
-                        "type" => "message",
-                        "text" => "Horo"
+                        "type" => "postback",
+                        "label" => "Horo",
+                        "data" => "action=Horo",
+                        "text" => ""
                   ]
                 ],
                 [
@@ -28,8 +30,10 @@
                         "height" => 843
                     ],
                     "action" => [
-                        "type" => "message",
-                        "text" => "Poll"
+                        "type" => "postback",
+                        "label" => "Poll",
+                        "data" => "action=Poll",
+                        "text" => ""
                     ]
                 ],
                 [
@@ -40,8 +44,10 @@
                         "height" => 843
                     ],
                     "action" => [
-                        "type" => "message",
-                        "text" => "Quiz"
+                        "type" => "postback",
+                        "label" => "Quiz",
+                        "data" => "action=Quiz",
+                        "text" => ""
                     ]
                   ],
                 [
@@ -52,8 +58,10 @@
                         "height" => 843
                     ],
                     "action" => [
-                        "type" => "message",
-                        "text" => "News"
+                        "type" => "postback",
+                        "label" => "News",
+                        "data" => "action=News",
+                        "text" => ""
                     ]
                   ],
                 [
@@ -64,8 +72,10 @@
                         "height" => 843
                     ],
                     "action" => [
-                        "type" => "message",
-                        "text" => "Vr/Ar"
+                        "type" => "postback",
+                        "label" => "Ar/Vr",
+                        "data" => "action=Ar/Vr",
+                        "text" => ""
                     ]
                   ],
                 [
@@ -77,7 +87,7 @@
                     ],
                     "action" => [    
                         "type" => "postback",
-                        "label" => "test PostBack",
+                        "label" => "Report",
                         "data" => "action=Report",
                         "text" => ""
                     ]

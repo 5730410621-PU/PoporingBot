@@ -123,11 +123,50 @@ if($type == "postback"){
 
 	$action = substr($arrayJson['events'][0]['postback']['data'],7);
 	
-	$arrayPostData['replyToken'] = $replyToken;
-	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = openSession($id,$action);;
-	//print_r (openSession($id,$action));
-	replyMsg($arrayHeader,$arrayPostData);
+	if($action == "Horo"){
+		$arrayPostData['replyToken'] = $replyToken;
+		$arrayPostData['messages'][0]['type'] = "text";
+		$arrayPostData['messages'][0]['text'] = "Horo";
+		//print_r (openSession($id,$action));
+		replyMsg($arrayHeader,$arrayPostData);
+	}
+	else if("Poll"){
+		$arrayPostData['replyToken'] = $replyToken;
+		$arrayPostData['messages'][0]['type'] = "text";
+		$arrayPostData['messages'][0]['text'] = "Rap Thailand 4.0  กับ ประเทศกูมี";
+		//print_r (openSession($id,$action));
+		replyMsg($arrayHeader,$arrayPostData);
+	}
+	else if("Quiz"){
+		$arrayPostData['replyToken'] = $replyToken;
+		$arrayPostData['messages'][0]['type'] = "text";
+		$arrayPostData['messages'][0]['text'] = "รู้หรือไม่ ไก่กับไข่อะไรเกิดก่อนกัน";
+		//print_r (openSession($id,$action));
+		replyMsg($arrayHeader,$arrayPostData);
+	}
+	else if("News"){
+		$arrayPostData['replyToken'] = $replyToken;
+		$arrayPostData['messages'][0]['type'] = "text";
+		$arrayPostData['messages'][0]['text'] = "นายกรัฐมนตรีประกาศลาออกเพื่อมีการจัดเลือกตั้งในวันที่...(คลิ๊ก)";
+		//print_r (openSession($id,$action));
+		replyMsg($arrayHeader,$arrayPostData);
+	}
+	else if("Vr/Ar"){
+		$arrayPostData['replyToken'] = $replyToken;
+		$arrayPostData['messages'][0]['type'] = "text";
+		$arrayPostData['messages'][0]['text'] = "ทดสอบระบบ Ar และ Vr กันเลย";
+		//print_r (openSession($id,$action));
+		replyMsg($arrayHeader,$arrayPostData);
+	}
+	else if($action == "Report"){
+		$arrayPostData['replyToken'] = $replyToken;
+		$arrayPostData['messages'][0]['type'] = "text";
+		$arrayPostData['messages'][0]['text'] = openSession($id,$action);
+		//print_r (openSession($id,$action));
+		replyMsg($arrayHeader,$arrayPostData);
+	}
+
+
 }
 
 else if($type == "message"){
