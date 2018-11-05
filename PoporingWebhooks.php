@@ -132,7 +132,7 @@ if($type == "postback"){
 
 else if($type == "message"){
 
-	if($typeMessage == "text" && $message == "#ยืนยัน"){
+	if($typeMessage == "text" && $message == "###"){
 		closeSession($id);
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
@@ -144,7 +144,7 @@ else if($type == "message"){
 		storeMessageData($id,$type,$message);
 	}
 
-	else if($typeMessage == "image" && $typeMessage == "video"){
+	else if($typeMessage == "image" || $typeMessage == "video"){
 		$imgVideoId = $arrayJson['events'][0]['message']['id'];
 		
 		$arrayPostData['replyToken'] = $replyToken;

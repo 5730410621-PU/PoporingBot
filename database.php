@@ -12,7 +12,7 @@ function openSession($id,$action){
     $sql = "INSERT INTO open_session (u_id,action,status) VALUES ('$id','$action','$status')";
 
     if ($conn->query($sql) === TRUE) {
-        $result =  "กรุณาแจ้งปัญหากับทางเรา หลังจากแจ้งแล้วให้กด\n#ยืนยัน \nเพื่อจบการแจ้งปัญหาครับ";
+        $result =  "กรุณาแจ้งปัญหากับทางเรา หลังจากแจ้งแล้วพิมพ์ข้อความ\n### \nเพื่อจบการแจ้งปัญหาครับ";
     } else {
         $result = "Error: ".$conn->error;
     }
@@ -52,7 +52,7 @@ function storeMessageData($id,$type,$message){
 
 function storeImageVideoData($id,$header,$imgId){
     
-    /*
+    
     $conn = sql();
     $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
     $linkId = $conn->query($sql);
@@ -61,14 +61,15 @@ function storeImageVideoData($id,$header,$imgId){
 
     if($gid != null){
 
-        
+        /*
         $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
         $ch = "curl -v -X "." GET ".$strUrl." -H '"."$header'"; //Binary File
         //$ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$accessHeader'"; //png File
         exec($ch,$output,$errorCode);
-        
+        */
+        $result = "Test Image and Video";
     }
-    */
-    $result = "Test Image and Video";
+    
+
     return $result; 
 }
