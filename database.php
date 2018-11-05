@@ -50,7 +50,7 @@ function storeMessageData($id,$type,$message){
     }
 }
 
-function storeImageVideoData($id,$header,$imgId){
+function storeImageVideoData($id,$header,$imgId,$typeMessage){
     
     
     $conn = sql();
@@ -63,11 +63,17 @@ function storeImageVideoData($id,$header,$imgId){
 
         /*
         $strUrl = "https://api.line.me/v2/bot/message/$imgId/content";
-        $ch = "curl -v -X "." GET ".$strUrl." -H '"."$header'"; //Binary File
+        $ch = "curl -v -X "." GET ".$strUrl." -H '"."$header'"; //get Binary File
         //$ch = "curl -v -X "." GET ".$strUrl." -o ".$imgId.".png "." -H '"."$accessHeader'"; //png File
         exec($ch,$output,$errorCode);
         */
- 
+        if($typeMessage == "Video"){
+            $path = "/storage/video/$imgId.mp4";
+        }
+        else{
+            $path = "/storage/video/$imgId.png";
+        }
+        $sql = "INSERT INTO log (u_id,g_id,type,message) VALUES ('$id','$gid','$typeMessage','$path')";
     }
     
 

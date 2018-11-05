@@ -204,6 +204,7 @@
         return "Result :: ".__DIR__." \nCh:: ".$ch;
     }
 
+    /*
     function getVideo($header,$imgId){
   
         $accessToken = 'o7QzwyoiRRAbnd0Ylquyd9BgFSP88lcRdo3Oy9HBBEP1Wq2C5oTKiiLC8LkCo2wNVYSLUvqxsmuY5RBVn3xjyFxm913dEQW6xPI1j6lvABZiV21xlLx8ifPyMrma2VJYu37dzVa/Xyp5oIysTAJ6wwdB04t89/1O/w1cDnyilFU=';
@@ -217,3 +218,4 @@
          
         return "Result :: ".__DIR__." \nCh:: ".$ch;
     }
+    */

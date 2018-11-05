@@ -126,7 +126,7 @@ if($type == "postback"){
 	if($action == "Horo"){
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = "Horo";
+		$arrayPostData['messages'][0]['text'] = "ดวงคุณวันนี้แข็งมาก";
 		//print_r (openSession($id,$action));
 		replyMsg($arrayHeader,$arrayPostData);
 	}
@@ -188,7 +188,7 @@ else if($type == "message"){
 		
 		$arrayPostData['replyToken'] = $replyToken;
 		$arrayPostData['messages'][0]['type'] = "text";
-		$arrayPostData['messages'][0]['text'] = storeImageVideoData($id,$accessHeader,$imgVideoId);
+		$arrayPostData['messages'][0]['text'] = storeImageVideoData($id,$accessHeader,$imgVideoId,$typeMessage);
 		//$arrayPostData['messages'][0]['text'] = 'test message type';
 		replyMsg($arrayHeader,$arrayPostData);
 	}
