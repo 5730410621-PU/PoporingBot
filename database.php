@@ -25,14 +25,16 @@ function openSession($id,$action){
 
 function closeSession($id){
     $conn = sql();
-    $status = '1';
-    $dateNow = date("Y-m-d H:i:s");
-    $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
-
-    if ($conn->query($sql) === TRUE) {
-        $result = "เราได้รับปัญหาแล้ว ทางเราจะทำการดำเนินการให้ไวที่สุด ขอบคุณสำหรับการแจ้งปัญหาครับ";
-    } else {
-        $result = "Error: ".$conn->error;
+    $sql = "SELECT * FROM open_session WHERE u_id = '$id' AND status = '1' ";
+    $isOpened = $conn->query($sql);
+    if($isOpened ->num_rows != 0){
+        $dateNow = date("Y-m-d H:i:s");
+        $sql = "UPDATE open_session SET end_time = '$dateNow' ,status = '0' WHERE u_id = '$id' AND status = '1'";
+        if ($conn->query($sql) === TRUE) {
+            $result = "เราได้รับปัญหาแล้ว ทางเราจะทำการดำเนินการให้ไวที่สุด ขอบคุณสำหรับการแจ้งปัญหาครับ";
+        } else {
+            $result = "Error: ".$conn->error;
+        }
     }
     $conn->close();
     return $result;
