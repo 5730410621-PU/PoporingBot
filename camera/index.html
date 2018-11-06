@@ -5,30 +5,34 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!-- Name of the app -->
-		<title>My LIFF app</title>
-		
+		<title>Camera App</title>
 
 		<!-- Link to main style sheet -->
 		<link rel="stylesheet" href="style.css"> 
-		<script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
 	</head>
 	<body>
-		Test
+		
+		<!-- Camera -->
+		<main id="camera">
+
+		    <!-- Camera sensor -->
+		    <canvas id="camera--sensor"></canvas>
+		    
+		    <!-- Camera view -->
+		    <video id="camera--view" autoplay playsinline></video>
+		    
+		    <!-- Camera output -->
+		    <img src="//:0" alt="" id="camera--output">
+
+		    <!-- Camera trigger -->
+		    <button id="camera--trigger">Take a picture</button>
+
+		</main>
+
+	
+
+		<!-- Reference to your JavaScript file -->
+		<script src="app.js"></script> 
+		<script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
 	</body>
-
-	<script>
-		liff.init(
-  			data => {
-			// Now you can call LIFF API
-			const userId = data.context.userId;
-			console.log("ss");
-			},
-			err => {
-				// LIFF initialization failed
-				//console.log("ss");
-				console.log(err);
-			}
-		);
-
-	</script>
 </html>
