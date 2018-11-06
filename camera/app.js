@@ -1,10 +1,3 @@
-window.onload = function (e) {
-    liff.init(function (data) {
-        initializeApp();
-    });
-};
-
-function initializeApp(){
 // Set constraints for the video stream
 var constraints = { video: { facingMode: "user" }, audio: false };
 var track = null;
@@ -41,4 +34,3 @@ cameraTrigger.onclick = function() {
 // Start the video stream when the window loads
 window.addEventListener("load", cameraStart, false);
 
-}
