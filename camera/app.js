@@ -2,6 +2,7 @@
 var constraints = { video: { facingMode: "user" }, audio: false };
 var track = null;
 
+
 // Define constants
 const cameraView = document.querySelector("#camera--view"),
     cameraOutput = document.querySelector("#camera--output"),
