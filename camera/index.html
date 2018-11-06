@@ -5,19 +5,30 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!-- Name of the app -->
-		<title>Camera App</title>
+		<title>My LIFF app</title>
+		
 
 		<!-- Link to main style sheet -->
 		<link rel="stylesheet" href="style.css"> 
+		<script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
 	</head>
 	<body>
-
-		<form action="server.cgi" method="post" enctype="multipart/form-data">
-			<input type="file" name="image" accept="image/*" capture="camera">
-			<input type="submit" value="Upload">
-		</form>
-		<!-- Reference to your JavaScript file -->
-		<script src="app.js"></script> 
-		<script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+		Test
 	</body>
+
+	<script>
+		liff.init(
+  			data => {
+			// Now you can call LIFF API
+			const userId = data.context.userId;
+			console.log("ss");
+			},
+			err => {
+				// LIFF initialization failed
+				//console.log("ss");
+				console.log(err);
+			}
+		);
+
+	</script>
 </html>
