@@ -33,7 +33,6 @@ setTimeout(function(e){
             external : true
         });
     });
-    alert("Hello");
 }, 2000);   
 
 /*
