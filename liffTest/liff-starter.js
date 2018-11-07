@@ -2,10 +2,7 @@ window.onload = function (e) {
     liff.init(function (data) {
        // initializeApp(data);
        function Redirect() {  
-            liff.openWindow({
-                url: 'https://powerful-ridge-10601.herokuapp.com/camera/',
-                external : true
-            });
+            window.location="http://www.google.com" ;
         } 
         setTimeout('Redirect()', 1000);   
     });
