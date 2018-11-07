@@ -5,80 +5,43 @@
 </head>
 <body>
   <h1>Camera Test</h1>
-  <input type="file" id="mypic" capture>
+  
   <canvas id="canvas"></canvas>
 
+  <form name=form_upload id=form_upload method=post enctype="multipart/form-data">
+    <input type="file" id="mypic" capture>
+  </form>
   <br>
+
+
+
   <script>
   var input = document.querySelector('input[type=file]'); // see Example 4
   input.onchange = function () {
     var file = input.files[0];
-    var editedFile = editImage(file);
     upload(file);
-    drawOnCanvas(file);   // see Example 6
-    //displayAsImage(file); // see Example 7
   };
  
-  function editImage(file){
-
-  }
-
   function upload(file) {
-    /*
-    var form = new FormData(),
-        xhr = new XMLHttpRequest();
-    //alert('Upload Complete');
 
-    form.append('image', file);
-    xhr.open('post', 'server.php', true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send(form);
-    */
+    var formData = new FormData();
+    formData.append('fileToUpload',file);
+    console.log(formData.get('fileToUpload'));
+    $.ajax({
+        type: "POST",
+        url: "server.php",
+        data: formData,
+        success: function(data) {
+          console.log(data);
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+    });
 
-    var form = new FormData();
-    var ajax = new XMLHttpRequest();
-
-    form.append('image', file);
-    ajax.open("POST", "server.php", false);
-    ajax.onreadystatechange = function() {
-      console.log(ajax.responseText);
-    }
-    ajax.setRequestHeader("Content-Type", "application/upload");
-    ajax.send(form);
-  }
- 
-  function drawOnCanvas(file) {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      var dataURL = e.target.result,
-          c = document.querySelector('canvas'), // see Example 4
-          ctx = c.getContext('2d'),
-          img = new Image();
- 
-      img.onload = function() {
-        c.width = img.width;
-        c.height = img.height;
-        ctx.drawImage(img, 0, 0);
-      };
- 
-      img.src = dataURL;
-    };
- 
-    reader.readAsDataURL(file);
-  }
- 
-  function displayAsImage(file) {
-    var imgURL = URL.createObjectURL(file),
-        img = document.createElement('img');
- 
-    img.onload = function() {
-      URL.revokeObjectURL(imgURL);
-    };
- 
-    img.src = imgURL;
-    document.body.appendChild(img);
   }
   </script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <!-- source: http://www.w3.org/TR/html-media-capture/ -->
 </body>
 </html>
