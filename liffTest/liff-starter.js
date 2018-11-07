@@ -17,13 +17,24 @@ function initializeApp(data) {
 
 }
 */
-  
+
+/*
 function Redirect() {  
    window.location="http://www.google.com" 
 } 
 document.write("You will be redirected to a new page in 5 seconds"); 
 setTimeout('Redirect()', 1000);   
+*/
 
+setTimeout(function(e){
+    liff.init(function (data) {
+        liff.openWindow({
+            url: 'https://powerful-ridge-10601.herokuapp.com/camera/',
+            external : true
+        });
+    });
+    alert("Hello");
+}, 2000);   
 
 /*
 function toggleProfileData() {
