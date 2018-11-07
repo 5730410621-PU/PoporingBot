@@ -9,7 +9,7 @@ function initializeApp(data) {
     document.getElementById('openwindowbutton').addEventListener('click', function () {
         liff.openWindow({
             url: 'https://powerful-ridge-10601.herokuapp.com/camera/',
-            external : ture
+            external : true
         });
     });
 
