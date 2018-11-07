@@ -1,10 +1,11 @@
-/*
+
 window.onload = function (e) {
+    alert(data);
     liff.init(function (data) {
         initializeApp(data);
     });
 };
-*/
+
 /*
 function initializeApp(data) {
     // openWindow call
@@ -26,6 +27,7 @@ document.write("You will be redirected to a new page in 5 seconds");
 setTimeout('Redirect()', 1000);   
 */
 
+/*
 window.onload = function (e) {
     setTimeout(function(data){
         alert(data);
@@ -37,6 +39,7 @@ window.onload = function (e) {
         });  
     }, 2000);  
 };
+*/
 
 
 /*
