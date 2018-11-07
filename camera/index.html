@@ -6,24 +6,45 @@
 <body>
   <h1>Camera Test</h1>
   <input type="file" id="mypic" capture>
-  <canvas></canvas>
+  <canvas id="canvas"></canvas>
+
   <br>
   <script>
   var input = document.querySelector('input[type=file]'); // see Example 4
   input.onchange = function () {
     var file = input.files[0];
-    //upload(file);
+    var editedFile = editImage(file);
+    upload(file);
     drawOnCanvas(file);   // see Example 6
     //displayAsImage(file); // see Example 7
   };
  
+  function editImage(file){
+
+  }
+
   function upload(file) {
+    /*
     var form = new FormData(),
         xhr = new XMLHttpRequest();
- 
+    //alert('Upload Complete');
+
     form.append('image', file);
     xhr.open('post', 'server.php', true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send(form);
+    */
+
+    var form = new FormData();
+    var ajax = new XMLHttpRequest();
+
+    form.append('image', file);
+    ajax.open("POST", "server.php", false);
+    ajax.onreadystatechange = function() {
+      console.log(ajax.responseText);
+    }
+    ajax.setRequestHeader("Content-Type", "application/upload");
+    ajax.send(form);
   }
  
   function drawOnCanvas(file) {
