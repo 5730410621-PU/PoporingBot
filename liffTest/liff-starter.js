@@ -33,6 +33,7 @@ setTimeout(function(e){
             external : true
         });
     });
+    alert(data);
 }, 2000);   
 
 /*
