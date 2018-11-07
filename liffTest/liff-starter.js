@@ -1,13 +1,10 @@
+/*
 window.onload = function (e) {
     liff.init(function (data) {
-       // initializeApp(data);
-       function Redirect() {  
-            window.location="http://www.google.com" ;
-        } 
-        setTimeout('Redirect()', 1000);   
+        initializeApp(data);
     });
 };
-
+*/
 /*
 function initializeApp(data) {
     // openWindow call
@@ -21,14 +18,12 @@ function initializeApp(data) {
 }
 */
   
-/*
-function Redirect() 
-{  
-    window.location="http://www.google.com" ;
+function Redirect() {  
+   window.location="http://www.google.com" 
 } 
 document.write("You will be redirected to a new page in 5 seconds"); 
 setTimeout('Redirect()', 1000);   
-*/
+
 
 /*
 function toggleProfileData() {
