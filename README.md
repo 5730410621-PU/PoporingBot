@@ -1,3 +1,0 @@
-# Poporing
-
-So Cuteeeeeee.
